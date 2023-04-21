@@ -1,0 +1,125 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "AlbumEasy",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"captures": {
+						  "1": {
+							"name": "punctuation.whitespace.comment.leading.albumeasy"
+						  },
+						  "2": {
+							"name": "comment.line.number-sign.albumeasy"
+						  },
+						  "3": {
+							"name": "punctuation.definition.comment.albumeasy"
+						  }
+					},
+						"comment": "comment.line",
+						"match": "(\\s*)((#).*$\\n?)"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bALBUM_PAGES_(SIZE|TITLE|MARGINSE?|SPACING|BORDER|DECORATIVE_BORDER|NUMBER|DATE|(HEADER|FOOTER)(_NUMBER|_DATE|_TXT)?(_PAD)?|MARGIN_TXT(_PAD)?)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bALBUM_(AUTHOR|TITLE|DEFINE_FONT)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bALBUM_STAMP_(IMG_((NEW_)?SETTING|GR[AE]YSCALE_O(N|FF)|HIDE|SHOW)|NEW_IMG_SETTING)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bPAGE_(START(_VAR|_INFO|_GROUP_(BEGIN|END))?|TEXT(_RIGHT|_CENT(ER|RE)|_PARAGRAPH_(START|END))?)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bPAGE_(ADD_BOX|QUADRILLE|RULE_H|BACKGROUND_IMG|VSPACE|COLUMN_(START|NEXT|STOP))\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bTEXT_(CHAR_SPACING|LINE_LEADING)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bROW_(START_(E|J|F)S|ALIGN_(TOP|MIDDLE|BOTTOM))\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bSTAMP_ADD(_BLANK|_DIAMOND|_OVAL|_TRIANGLE(_INV)?|_HEXAGON|_OCTAGON|_IMG)?\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bSTAMP_(INNER_BORDER(_STYLE)?|BORDER_STYLE|HEADING(_VA|_PADDING)?|BOXES_(SIZE_ADJUST|ADJUST_(SAVE|RESTORE)))\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bCOLOUR_ALBUM_((DECORATIVE_)?BORDER|FOOTER|HEADER|TITLE|MARGIN_TXT)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bCOLOUR_PAGE_(QUADRILLE|RULE_H|TEXT)\\b"
+			},
+			{
+				"name": "keyword.control.albumeasy",
+				"match": "(?i)\\bCOLOUR_STAMP_((INNER_)?BORDER|BACKGROUND|HEADING|TEXT)\\b"
+			},
+			{
+				"name": "meta.preprocessor.albumeasy",
+				"match": "(?i)\\$\\b(INCLUDE|(UN)?DEFINE|IFDEF|ELSE(IF)?|ENDIF)\\b"
+			}]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.albumeasy",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [{
+						"name": "constant.character.escape.albumeasy",
+						"match": "\\\\."
+					}]
+				},
+				{
+					"contentName":"string.quoted.double.albumeasy",
+					"begin": "(PAGE_TEXT_PARAGRAPH_START)\\s*\\([^)]+\\)\\s*",
+					"beginCaptures": {
+						"1": {
+							"name":"keyword.control.albumeasy"
+						}
+					},
+					"end": "PAGE_TEXT_PARAGRAPH_END",
+					"endCaptures": {
+						"0": {
+							"name": "keyword.control.albumeasy"
+						}
+					},
+					"patterns": [
+						{
+							"name": "constant.character.escape.albumeasy",
+							"match": "\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|u\\{[0-9A-Fa-f]+\\}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.|$)"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.ae"
+}
