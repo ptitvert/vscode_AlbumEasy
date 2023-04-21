@@ -27,7 +27,7 @@
     "grammars": [
       {
         "language": "albumeasy",
-        "scopeName": "source.albumeasy",
+        "scopeName": "source.ae",
         "path": "./syntaxes/albumeasy.tmLanguage.json"
       }
     ]
