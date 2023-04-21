@@ -1,6 +1,6 @@
 {
-  "name": "ae",
-  "displayName": "AE",
+  "name": "albumeasy",
+  "displayName": "AlbumEasy Highlights",
   "description": "AlbumEasy Files",
   "version": "0.0.1",
   "engines": {
@@ -18,7 +18,8 @@
           "albumeasy"
         ],
         "extensions": [
-          ".ae"
+          ".ae",
+          ".albumeasy"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -26,7 +27,7 @@
     "grammars": [
       {
         "language": "albumeasy",
-        "scopeName": "source.ae",
+        "scopeName": "source.albumeasy",
         "path": "./syntaxes/albumeasy.tmLanguage.json"
       }
     ]
